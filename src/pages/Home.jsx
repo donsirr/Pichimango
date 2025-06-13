@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const navigate = useNavigate();
+
     const images = [
         "/image1.png",
         "/image2.png",
@@ -119,6 +122,7 @@ function Home() {
                     ].map((cat) => (
                         <div
                             key={cat.title}
+                            onClick={() => navigate('/catalog')}
                             className="overflow-hidden rounded-2xl shadow hover:shadow-lg transition group cursor-pointer"
                         >
                             <img
